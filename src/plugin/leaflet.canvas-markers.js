@@ -257,7 +257,8 @@ function layerFactory(L) {
         _drawImage: function (marker, pointPos) {
 
             var options = marker.options.icon.options;
-
+            // TODO: 20-09-16 我加入的旋转方向的尝试
+            this._context.rotate(45)
             this._context.drawImage(
                 marker.canvas_img,
                 pointPos.x - options.iconAnchor[0],
@@ -284,6 +285,7 @@ function layerFactory(L) {
 
             var self = this;
 
+            // 清除之前已经绘制的画布
             if (clear) this._context.clearRect(0, 0, this._canvas.width, this._canvas.height);
             if (!this._map || !this._latlngMarkers) return;
 
